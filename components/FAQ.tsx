@@ -15,47 +15,65 @@ export default function FAQ() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/faqs`)
-      .then((res) => res.json())
+    // Default FAQs - use immediately for fast loading
+    const defaultFAQs = [
+      {
+        _id: '1',
+        question: 'What areas do you service?',
+        answer: 'We provide towing services across all major cities and regions in Australia, including Melbourne, Sydney, Brisbane, Perth, Adelaide, and surrounding areas.',
+      },
+      {
+        _id: '2',
+        question: 'How quickly can you arrive?',
+        answer: 'Our average response time is 30-45 minutes in metropolitan areas. We prioritize emergency situations and aim to reach you as quickly as possible.',
+      },
+      {
+        _id: '3',
+        question: 'Do you offer 24/7 service?',
+        answer: 'Yes, we operate 24 hours a day, 7 days a week, including holidays. Our team is always ready to assist you whenever you need help.',
+      },
+      {
+        _id: '4',
+        question: 'What payment methods do you accept?',
+        answer: 'We accept cash, credit cards, debit cards, and most insurance companies. Payment can be made on-site or through our online portal.',
+      },
+      {
+        _id: '5',
+        question: 'Are your drivers licensed and insured?',
+        answer: 'Absolutely. All our drivers are fully licensed, trained, and insured. We maintain comprehensive insurance coverage for all our vehicles and operations.',
+      },
+      {
+        _id: '6',
+        question: 'Can you tow heavy vehicles?',
+        answer: 'Yes, we have specialized equipment and trained operators for towing heavy vehicles including trucks, buses, and commercial vehicles.',
+      },
+    ]
+
+    // Set default FAQs immediately for fast loading
+    setFaqs(defaultFAQs)
+    setLoading(false)
+
+    // Try to fetch from API in background (with timeout)
+    const controller = new AbortController()
+    const timeoutId = setTimeout(() => controller.abort(), 3000) // 3 second timeout
+
+    fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/faqs`, {
+      signal: controller.signal,
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error('API response not ok')
+        return res.json()
+      })
       .then((data) => {
-        setFaqs(data)
-        setLoading(false)
+        if (data && Array.isArray(data) && data.length > 0) {
+          setFaqs(data)
+        }
       })
       .catch(() => {
-        // Fallback to default FAQs if API fails
-        setFaqs([
-          {
-            _id: '1',
-            question: 'What areas do you service?',
-            answer: 'We provide towing services across all major cities and regions in Australia, including Melbourne, Sydney, Brisbane, Perth, Adelaide, and surrounding areas.',
-          },
-          {
-            _id: '2',
-            question: 'How quickly can you arrive?',
-            answer: 'Our average response time is 30-45 minutes in metropolitan areas. We prioritize emergency situations and aim to reach you as quickly as possible.',
-          },
-          {
-            _id: '3',
-            question: 'Do you offer 24/7 service?',
-            answer: 'Yes, we operate 24 hours a day, 7 days a week, including holidays. Our team is always ready to assist you whenever you need help.',
-          },
-          {
-            _id: '4',
-            question: 'What payment methods do you accept?',
-            answer: 'We accept cash, credit cards, debit cards, and most insurance companies. Payment can be made on-site or through our online portal.',
-          },
-          {
-            _id: '5',
-            question: 'Are your drivers licensed and insured?',
-            answer: 'Absolutely. All our drivers are fully licensed, trained, and insured. We maintain comprehensive insurance coverage for all our vehicles and operations.',
-          },
-          {
-            _id: '6',
-            question: 'Can you tow heavy vehicles?',
-            answer: 'Yes, we have specialized equipment and trained operators for towing heavy vehicles including trucks, buses, and commercial vehicles.',
-          },
-        ])
-        setLoading(false)
+        // Silently fail - we already have default FAQs
+      })
+      .finally(() => {
+        clearTimeout(timeoutId)
       })
   }, [])
 

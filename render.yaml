@@ -3,7 +3,7 @@ services:
     name: auswide-towing-backend
     env: node
     buildCommand: npm install
-    startCommand: npm run server
+    startCommand: node start-backend.js
     envVars:
       - key: NODE_ENV
         value: production

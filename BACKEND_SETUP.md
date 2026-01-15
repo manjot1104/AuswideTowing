@@ -219,3 +219,4 @@ curl http://localhost:5000/api/faqs
 ---
 
 **Need Help?** Check `README.md` for detailed setup instructions.
+

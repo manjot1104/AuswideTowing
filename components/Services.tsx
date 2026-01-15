@@ -15,53 +15,71 @@ export default function Services() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/services`)
-      .then((res) => res.json())
+    // Default services - use immediately for fast loading
+    const defaultServices = [
+      {
+        _id: '1',
+        name: 'Vehicle Towing',
+        description: 'We can transport any size vehicle door to door',
+        icon: '🚗',
+      },
+      {
+        _id: '2',
+        name: 'Plant & Equipment',
+        description: 'Supporting Australia\'s plant & equipment organisations',
+        icon: '🏗️',
+      },
+      {
+        _id: '3',
+        name: 'Portables & Containers',
+        description: 'Need a portable building or container moved?',
+        icon: '📦',
+      },
+      {
+        _id: '4',
+        name: 'Specialty Towing',
+        description: 'We can assist with your speciality towing needs',
+        icon: '🚛',
+      },
+      {
+        _id: '5',
+        name: 'Interstate',
+        description: 'Anything, Nationwide, Anytime - Safely.',
+        icon: '🛣️',
+      },
+      {
+        _id: '6',
+        name: 'Storage Solutions',
+        description: 'Check out our storage solutions',
+        icon: '🏢',
+      },
+    ]
+
+    // Set default services immediately for fast loading
+    setServices(defaultServices)
+    setLoading(false)
+
+    // Try to fetch from API in background (with timeout)
+    const controller = new AbortController()
+    const timeoutId = setTimeout(() => controller.abort(), 3000) // 3 second timeout
+
+    fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/services`, {
+      signal: controller.signal,
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error('API response not ok')
+        return res.json()
+      })
       .then((data) => {
-        setServices(data)
-        setLoading(false)
+        if (data && Array.isArray(data) && data.length > 0) {
+          setServices(data)
+        }
       })
       .catch(() => {
-        // Fallback to default services if API fails
-        setServices([
-          {
-            _id: '1',
-            name: 'Vehicle Towing',
-            description: 'We can transport any size vehicle door to door',
-            icon: '🚗',
-          },
-          {
-            _id: '2',
-            name: 'Plant & Equipment',
-            description: 'Supporting Australia\'s plant & equipment organisations',
-            icon: '🏗️',
-          },
-          {
-            _id: '3',
-            name: 'Portables & Containers',
-            description: 'Need a portable building or container moved?',
-            icon: '📦',
-          },
-          {
-            _id: '4',
-            name: 'Specialty Towing',
-            description: 'We can assist with your speciality towing needs',
-            icon: '🚛',
-          },
-          {
-            _id: '5',
-            name: 'Interstate',
-            description: 'Anything, Nationwide, Anytime - Safely.',
-            icon: '🛣️',
-          },
-          {
-            _id: '6',
-            name: 'Storage Solutions',
-            description: 'Check out our storage solutions',
-            icon: '🏢',
-          },
-        ])
-        setLoading(false)
+        // Silently fail - we already have default services
+      })
+      .finally(() => {
+        clearTimeout(timeoutId)
       })
   }, [])
 
