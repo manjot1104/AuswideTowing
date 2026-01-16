@@ -53,12 +53,25 @@ export default function FAQ() {
     setFaqs(defaultFAQs)
     setLoading(false)
 
-    // Try to fetch from API in background (with timeout)
-    const controller = new AbortController()
-    const timeoutId = setTimeout(() => controller.abort(), 3000) // 3 second timeout
+    // Only fetch from API if explicitly configured with a valid production URL
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL
+    
+    // Skip API fetch if:
+    // 1. API URL is not set
+    // 2. API URL is localhost (development only)
+    // This ensures Vercel uses static data immediately without waiting for API
+    if (!apiUrl || apiUrl.includes('localhost')) {
+      return // Use default FAQs only - instant loading
+    }
 
-    fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/faqs`, {
+    // Try to fetch from API in background with very short timeout (1 second)
+    const controller = new AbortController()
+    const timeoutId = setTimeout(() => controller.abort(), 1000) // 1 second timeout for faster fail
+
+    fetch(`${apiUrl}/api/faqs`, {
       signal: controller.signal,
+      // Add cache headers to prevent unnecessary requests
+      cache: 'no-store',
     })
       .then((res) => {
         if (!res.ok) throw new Error('API response not ok')
