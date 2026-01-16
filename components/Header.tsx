@@ -43,7 +43,7 @@ export default function Header() {
               <span className="text-white font-bold text-xl">A</span>
             </div>
             <span className="text-xl font-bold text-slate-900">
-              Auswide <span className="text-primary-600">Towing</span>
+              Auswide <span className="text-primary-600">Towing Group</span>
             </span>
           </Link>
 
@@ -63,10 +63,10 @@ export default function Header() {
           {/* Phone CTA */}
           <div className="hidden md:flex items-center space-x-4">
             <a
-              href="tel:+6161461374583"
+              href="tel:+61461374583"
               className="btn-primary text-sm"
             >
-              📞 0614 613 74583
+              📞 +61 461 374 583
             </a>
           </div>
 
@@ -121,10 +121,10 @@ export default function Header() {
                 </Link>
               ))}
               <a
-                href="tel:+6161461374583"
+                href="tel:+61461374583"
                 className="btn-primary text-sm text-center mt-2"
               >
-                📞 0614 613 74583
+                📞 +61 461 374 583
               </a>
             </div>
           </motion.div>

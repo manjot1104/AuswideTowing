@@ -47,10 +47,10 @@ export default function Hero() {
               Get a Free Quote
             </Link>
             <a
-              href="tel:+6161461374583"
+              href="tel:+61461374583"
               className="btn-secondary text-lg px-8 py-4"
             >
-              📞 Call Now: 0614 613 74583
+              📞 Call Now: +61 461 374 583
             </a>
           </motion.div>
 

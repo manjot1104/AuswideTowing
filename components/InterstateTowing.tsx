@@ -87,10 +87,10 @@ export default function InterstateTowing() {
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
                 <a
-                  href="tel:+6161461374583"
+                  href="tel:+61461374583"
                   className="btn-primary text-lg px-8 py-4 flex items-center justify-center gap-2"
                 >
-                  📞 0614 613 74583
+                  📞 +61 461 374 583
                 </a>
                 <Link
                   href="#contact"
@@ -175,10 +175,10 @@ export default function InterstateTowing() {
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
-                  href="tel:+6161461374583"
+                  href="tel:+61461374583"
                   className="btn-primary text-lg px-8 py-4 flex items-center justify-center gap-2"
                 >
-                  📞 0614 613 74583
+                  📞 +61 461 374 583
                 </a>
                 <Link
                   href="#contact"
@@ -265,10 +265,10 @@ export default function InterstateTowing() {
                 <p className="text-slate-600 leading-relaxed mb-6">{feature.description}</p>
                 <div className="flex flex-col sm:flex-row gap-3">
                   <a
-                    href="tel:+6161461374583"
+                    href="tel:+61461374583"
                     className="btn-primary text-sm px-6 py-3 flex items-center justify-center gap-2"
                   >
-                    📞 0614 613 74583
+                    📞 +61 461 374 583
                   </a>
                   <Link
                     href="#contact"
@@ -332,10 +332,10 @@ export default function InterstateTowing() {
                         <p className="text-slate-600 leading-relaxed mb-6">{step.description}</p>
                         <div className="flex flex-col sm:flex-row gap-3">
                           <a
-                            href="tel:+6161461374583"
+                            href="tel:+61461374583"
                             className="btn-primary text-sm px-6 py-3 flex items-center justify-center gap-2"
                           >
-                            📞 0614 613 74583
+                            📞 +61 461 374 583
                           </a>
                           <Link
                             href="#contact"
@@ -407,10 +407,10 @@ export default function InterstateTowing() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="tel:+6161461374583"
+                href="tel:+61461374583"
                 className="btn-primary text-lg px-8 py-4 flex items-center justify-center gap-2"
               >
-                📞 0614 613 74583
+                📞 +61 461 374 583
               </a>
               <Link
                 href="#contact"
@@ -449,10 +449,10 @@ export default function InterstateTowing() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="tel:+6161461374583"
+                href="tel:+61461374583"
                 className="btn-primary text-lg px-8 py-4 flex items-center justify-center gap-2"
               >
-                📞 0614 613 74583
+                📞 +61 461 374 583
               </a>
               <Link
                 href="#contact"

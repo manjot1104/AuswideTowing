@@ -31,7 +31,7 @@ export default function Footer() {
                 <span className="text-white font-bold text-xl">A</span>
               </div>
               <span className="text-xl font-bold text-white">
-                Auswide <span className="text-primary-400">Towing</span>
+                Auswide <span className="text-primary-400">Towing Group</span>
               </span>
             </div>
             <p className="text-slate-400 mb-4">
@@ -112,10 +112,17 @@ export default function Footer() {
               <li className="flex items-start space-x-2">
                 <span className="text-primary-400">📞</span>
                 <a
-                  href="tel:+6161461374583"
+                  href="tel:+61461374583"
                   className="hover:text-primary-400 transition-colors"
                 >
-                  0614 613 74583
+                  +61 461 374 583
+                </a>
+                <span className="text-slate-400 mx-2">|</span>
+                <a
+                  href="tel:+61452000091"
+                  className="hover:text-primary-400 transition-colors"
+                >
+                  +61 452 000 091
                 </a>
               </li>
               <li className="flex items-start space-x-2">

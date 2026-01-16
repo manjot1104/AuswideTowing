@@ -464,7 +464,7 @@ export default function QuoteForm() {
                   animate={{ opacity: 1, y: 0 }}
                   className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-800"
                 >
-                  ✗ Something went wrong. Please try again or call us directly at 0614 613 74583.
+                  ✗ Something went wrong. Please try again or call us directly at +61 461 374 583 or +61 452 000 091.
                 </motion.div>
               )}
             </form>
@@ -489,7 +489,7 @@ export default function QuoteForm() {
                 Need an urgent quote? Call us to speak to a team member
               </p>
               <a
-                href="tel:+6161461374583"
+                href="tel:+61461374583"
                 className="w-full btn-primary text-center block"
               >
                 📞 Call Us

@@ -136,10 +136,10 @@ export default function Services() {
           <div className="flex items-center justify-center gap-2 text-lg">
             <span className="text-slate-700 font-medium">Contact Info:</span>
             <a
-              href="tel:+6161461374583"
+              href="tel:+61461374583"
               className="text-primary-600 hover:text-primary-700 font-semibold transition-colors"
             >
-              📞 0614 613 74583
+              📞 +61 461 374 583
             </a>
           </div>
         </motion.div>

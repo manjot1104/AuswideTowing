@@ -39,12 +39,12 @@ const storageTypes = [
 const locations = [
   {
     name: 'Noble Park',
-    phone: '0614 613 74583',
+    phone: '+61 461 374 583',
     email: 'noblepark.impound@auswidetowing.com.au',
   },
   {
     name: 'Sunshine',
-    phone: '0614 613 74583',
+    phone: '+61 461 374 583',
     email: 'sunshine.impound@auswidetowing.com.au',
   },
 ]
@@ -136,7 +136,7 @@ export default function StorageSolutions() {
                   Online Quote <span>→</span>
                 </Link>
                 <a
-                  href="tel:+6161461374583"
+                  href="tel:+61461374583"
                   className="btn-secondary text-lg px-8 py-4 flex items-center justify-center gap-2 bg-white text-slate-900 border-2 border-slate-900 hover:bg-slate-50"
                 >
                   📞 Call Now
@@ -202,7 +202,7 @@ export default function StorageSolutions() {
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="tel:+6161461374583"
+                href="tel:+61461374583"
                 className="btn-secondary text-lg px-8 py-4 flex items-center justify-center gap-2 bg-white text-slate-900 border-2 border-slate-900 hover:bg-slate-50"
               >
                 📞 Call Now
@@ -272,7 +272,7 @@ export default function StorageSolutions() {
                   Online Quote <span>→</span>
                 </Link>
                 <a
-                  href="tel:+6161461374583"
+                  href="tel:+61461374583"
                   className="btn-secondary text-lg px-8 py-4 flex items-center justify-center gap-2"
                 >
                   📞 Call Now
@@ -317,7 +317,7 @@ export default function StorageSolutions() {
                   Online Quote <span>→</span>
                 </Link>
                 <a
-                  href="tel:+6161461374583"
+                  href="tel:+61461374583"
                   className="btn-secondary text-lg px-8 py-4 flex items-center justify-center gap-2"
                 >
                   📞 Call Now
@@ -396,7 +396,7 @@ export default function StorageSolutions() {
                   Online Quote <span>→</span>
                 </Link>
                 <a
-                  href="tel:+6161461374583"
+                  href="tel:+61461374583"
                   className="btn-secondary text-lg px-8 py-4 flex items-center justify-center gap-2"
                 >
                   📞 Call Now
@@ -631,7 +631,7 @@ export default function StorageSolutions() {
                 >
                   <h3 className="text-2xl font-bold text-slate-900 mb-4">{location.name}</h3>
                   <a
-                    href="tel:+6161461374583"
+                    href="tel:+61461374583"
                     className="btn-primary w-full mb-4 flex items-center justify-center gap-2"
                   >
                     📞 Call {location.phone}
